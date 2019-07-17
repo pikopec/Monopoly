@@ -8,13 +8,12 @@ void Player::changeMoney(int value)
     m_money += value;
 }
 
-bool Player::isBancrupt()
+bool Player::isBancrupt() const
 {
     return m_money <= 0;
 }
 
-void Player::move(Field& newPosition)
+void Player::move(int numberOfFields)
 {
-    currentField = newPosition;
-    m_money += newPosition.getValue();
+   //todo move
 }

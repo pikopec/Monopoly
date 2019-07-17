@@ -20,3 +20,8 @@ Board::Board()
     std::for_each(fields.begin(), fields.end(), [](const auto& field) { field.printValue(); } );
 }
 
+Field& Board::getStartingField()
+{
+    return fields.front();
+}
+
