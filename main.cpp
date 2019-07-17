@@ -8,6 +8,7 @@ int main()
     Game game(board, numberOfRounds);
     game.addPlayer("Jan");
     game.addPlayer("Maria");
+    game.addPlayer("Zygmunt");
     game.run();
     std::cout << "Hello!" << std::endl;
 }

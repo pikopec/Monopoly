@@ -1,4 +1,5 @@
 #include "Player.hpp"
+#include <iostream>
 
 Player::Player(std::string name, int initMoney, Field* startField) :
     m_name(name), m_money(initMoney), currentField(startField) {}
@@ -10,6 +11,7 @@ void Player::changeMoney(int value)
 
 bool Player::isBancrupt() const
 {
+    std::cout << "money: " <<  m_money << ", isBancrupt" << (m_money <= 0);
     return m_money <= 0;
 }
 
