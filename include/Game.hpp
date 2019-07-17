@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include "Board.hpp"
 #include "Player.hpp"
+#include "Board.hpp"
 #include <algorithm>
 
 class Game

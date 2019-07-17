@@ -15,6 +15,7 @@ Board::Board()
     for(int i = 0; i < fieldValues.size(); i++)
     {
         fields[i]= fieldValues[i];
+        fields[i].initializeNextField(&fields[(i+1)%fields.size()]);
     }
 
     std::for_each(fields.begin(), fields.end(), [](const auto& field) { field.printValue(); } );
