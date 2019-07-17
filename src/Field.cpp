@@ -1,5 +1,6 @@
 #include "Field.hpp"
 #include <iostream>
+#include "Player.hpp"
 
 Field::Field(int value) : valueToAdd(value) {}
 Field::Field() : valueToAdd(0) {}
@@ -12,7 +13,7 @@ void Field::printValue() const
 {
     std::cout << "Value: " << valueToAdd << std::endl;
 }
-#include "Player.hpp"
+
 
 int Field::getValue()
 {

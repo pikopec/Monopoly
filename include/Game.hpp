@@ -12,6 +12,7 @@ public:
     void removeBancrupts();
     Game(Board board, int numberOfRounds);
 private:
+    void playRound();
     bool winConditionCheck();
     Board m_board;
     std::vector<Player> m_players;

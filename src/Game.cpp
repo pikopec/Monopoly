@@ -8,27 +8,25 @@ void Game::run()
 {
     std::cout << "Game started" << std::endl;
     auto currentPlayer = m_players.begin();
-    for(int round = 0; round <= m_numberOfRounds; round++)
+    for(int round = 0; round <= m_numberOfRounds && m_players.size() > 2; round++)
     {
         std::cout << "round " << round << std::endl;
+        playRound();
+    }
+}
 
-        for(auto& player : m_players)
-        {
-            std::cout << "Player " << player.getName() << ", money: " << player.getMoney() << std::endl;
-            player.move(6);
-            removeBancrupts();
-            if(m_players.size() == 1)
-            {
-                std::cout << "GAME OVER, winner is player " << m_players[0].getName();
-                return;
-            }
-
-        }
-        //currentPlayer->move(6); // todo losowanie
-
-
-        //currentPlayer++; // todo round
+void Game::playRound()
+{
+    for(auto& player : m_players)
+    {
+        std::cout << "Player " << player.getName() << ", money: " << player.getMoney() << std::endl;
+        player.move(6);
         removeBancrupts();
+        if(m_players.size() == 1)
+        {
+            std::cout << "GAME OVER, winner is player " << m_players[0].getName();
+            return;
+        }
     }
 }
 

@@ -11,7 +11,7 @@ void Player::changeMoney(int value)
 
 bool Player::isBancrupt() const
 {
-    std::cout << "money: " <<  m_money << ", isBancrupt" << (m_money <= 0);
+    std::cout << "money: " <<  m_money << ", isBancrupt " << (m_money <= 0) << std::endl;
     return m_money <= 0;
 }
 
