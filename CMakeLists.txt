@@ -8,17 +8,21 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 file(GLOB SRC "src/*.cpp")
 file(GLOB TEST_SRC "test/*.cpp")
+file(GLOB TEST2_SRC "dupa/*.cpp")
 
 include_directories("./include")
 add_subdirectory (googletest)
 
 
 add_executable(${PROJECT_NAME} "main.cpp" ${SRC})
-##add_library(sources ${SRC})
+add_library(sources ${SRC})
 ##target_link_libraries (${PROJECT_NAME} sources)
 
 add_executable(TEST ${TEST_SRC})
 target_link_libraries (TEST sources gtest gmock gmock_main)
+
+add_executable(TEST2 ${TEST2_SRC})
+target_link_libraries (TEST2 sources gtest gmock gmock_main)
 
 ### pokazuje includy w projekcie
 FILE(GLOB_RECURSE LibFiles "./*.hpp")
