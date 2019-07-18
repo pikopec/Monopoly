@@ -11,8 +11,12 @@ void Player::changeMoney(int value)
 
 bool Player::isBancrupt() const
 {
-    std::cout << "money: " <<  m_money << ", isBancrupt " << (m_money <= 0) << std::endl;
-    return m_money <= 0;
+    bool result = m_money <= 0;
+    if(result)
+    {
+        std::cout << "Player: " <<  m_name << " isBancrupt;" << std::endl;
+    }
+    return result;
 }
 
 void Player::move(int numberOfFields)
@@ -24,7 +28,6 @@ void Player::move(int numberOfFields)
     }
     currentField = currentField->getNextField();
     currentField->onStand(*this);
-   //todo move
 }
 
 std::string Player::getName() const

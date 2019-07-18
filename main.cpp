@@ -10,5 +10,4 @@ int main()
     game.addPlayer("Maria");
     game.addPlayer("Zygmunt");
     game.run();
-    std::cout << "Hello!" << std::endl;
 }

@@ -8,7 +8,7 @@ void Game::run()
 {
     std::cout << "Game started" << std::endl;
     auto currentPlayer = m_players.begin();
-    for(int round = 0; round <= m_numberOfRounds && m_players.size() > 2; round++)
+    for(int round = 0; round <= m_numberOfRounds && m_players.size() > 1; round++)
     {
         std::cout << "round " << round << std::endl;
         playRound();
