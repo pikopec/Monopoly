@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-Game::Game(Board board, int numberOfRounds) : m_board(board), m_numberOfRounds(numberOfRounds) {}
+Game::Game(Board board, int numberOfRounds, Dies dies) : m_board(board), m_numberOfRounds(numberOfRounds), m_dies(dies) {}
 
 void Game::run()
 {
@@ -20,7 +20,7 @@ void Game::playRound()
     for(auto& player : m_players)
     {
         std::cout << "Player " << player.getName() << ", money: " << player.getMoney() << std::endl;
-        player.move(6);
+        player.move(m_dies.roll());
         removeBancrupts();
         if(m_players.size() == 1)
         {
