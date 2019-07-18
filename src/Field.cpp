@@ -24,14 +24,3 @@ Field* Field::getNextField()
 {
     return nextField;
 }
-
-void Field::onPass(Player& player)
-{
-    (void)player;
-    // nic
-}
-
-void Field::onStand(Player& player)
-{
-    player.changeMoney(valueToAdd);
-}

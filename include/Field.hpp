@@ -10,9 +10,9 @@ public:
     Field();
     void initializeNextField(Field* field);
     Field* getNextField();
-    void onPass(Player& player);
-    void onStand(Player& player);
-private:
+    virtual void onPass(Player& player) = 0;
+    virtual void onStand(Player& player) = 0;
+protected:
     int valueToAdd;
     Field* nextField;
 };

@@ -1,5 +1,8 @@
 #pragma once
 #include "Field.hpp"
+#include "StandardField.hpp"
+#include "StartField.hpp"
+#include "DepositField.hpp"
 #include <array>
 
 class Board
@@ -9,5 +12,5 @@ public:
     Field& getStartingField();
 private:
     void addField(std::string name);
-    std::array<Field, 40> fields;
+    std::array<Field*, 40> fields;
 };
