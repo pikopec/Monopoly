@@ -3,7 +3,9 @@
 #include "Player.hpp"
 
 Field::Field(int value) : valueToAdd(value) {}
+
 Field::Field() : valueToAdd(0) {}
+
 void Field::initializeNextField(Field *field)
 {
     nextField = field;
@@ -12,12 +14,6 @@ void Field::initializeNextField(Field *field)
 void Field::printValue() const
 {
     std::cout << "Value: " << valueToAdd << std::endl;
-}
-
-
-int Field::getValue()
-{
-    return valueToAdd;
 }
 
 Field* Field::getNextField()

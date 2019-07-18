@@ -1,10 +1,9 @@
-#pragma once
+﻿#pragma once
 class Player;
 
 class Field
 {
 public:
-    int getValue();
     void printValue() const;
     Field(int value);
     Field();
