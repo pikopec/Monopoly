@@ -17,17 +17,21 @@ void Game::run()
 
 void Game::playRound()
 {
+    int numberOfActivePlayers = m_players.size();
     for(auto& player : m_players)
     {
         std::cout << "Player " << player.getName() << ", money: " << player.getMoney() << std::endl;
         player.move(6);
-        removeBancrupts();
-        if(m_players.size() == 1)
+        if(player.isBancrupt())
+            --numberOfActivePlayers;
+        if(numberOfActivePlayers == 1)
         {
+            removeBancrupts();
             std::cout << "GAME OVER, winner is player " << m_players[0].getName();
             return;
         }
     }
+    removeBancrupts();
 }
 
 void Game::addPlayer(std::string name)
@@ -39,10 +43,8 @@ void Game::removeBancrupts()
 {
     m_players.erase(std::remove_if(m_players.begin(), m_players.end(), [](const auto& player){
         return player.isBancrupt();
-        //return true;
     }), m_players.end());
     std::cout << "player size: " << m_players.size() << std::endl;
-    //std::for_each
 }
 
 bool Game::winConditionCheck()
