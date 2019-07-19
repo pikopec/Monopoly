@@ -11,7 +11,7 @@ class Game
 public:
     void run();
     void addPlayer(std::unique_ptr<Player> player);
-    Game(Board board, int numberOfRounds, Dies dies);
+    Game(Board& board, int numberOfRounds, Dies& dies);
 private:
     void playRound();
     std::string findWinnerName();

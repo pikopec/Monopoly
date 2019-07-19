@@ -1,19 +1,22 @@
 #include "Dies.hpp"
 
 
-Dies::Dies(int numberOfDies) : m_numberOfDies(numberOfDies)
-{
-    srand(time(NULL));
-}
+Dies::Dies() {}
+
 
 int Dies::roll()
 {
     int result = 0;
-    for(int i = 0; i < m_numberOfDies; i++)
+
+    for(auto die : dies)
     {
-        result += (rand() % 6) + 1;
+        result += die->roll();
     }
 
     return result;
 }
 
+void Dies::addDie(Die* die)
+{
+    dies.emplace_back(die);
+}

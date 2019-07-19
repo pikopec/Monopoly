@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-Game::Game(Board board, int numberOfRounds, Dies dies) : m_board(board), m_numberOfRounds(numberOfRounds), m_dies(dies) {}
+Game::Game(Board& board, int numberOfRounds, Dies& dies) : m_board(board), m_numberOfRounds(numberOfRounds), m_dies(dies) {}
 
 void Game::run()
 {
