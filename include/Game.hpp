@@ -11,11 +11,12 @@ class Game
 public:
     void run();
     void addPlayer(std::unique_ptr<Player> player);
-    void removeBancrupts();
     Game(Board board, int numberOfRounds, Dies dies);
 private:
     void playRound();
-    bool winConditionCheck();
+    std::string findWinnerName();
+    int countActivePlayers();
+
     Board m_board;
     Dies m_dies;
     std::vector<std::unique_ptr<Player>> m_players;
