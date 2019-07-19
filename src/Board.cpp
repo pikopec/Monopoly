@@ -1,5 +1,6 @@
 #include "Board.hpp"
 #include <algorithm>
+#include "Prison.hpp"
 
 Board::Board()
 {
@@ -23,6 +24,10 @@ Board::Board()
         else if(i%3 == 0)
         {
             fields[i] = new RealEstateField(100, 10);
+        }
+        else if(i == 14 or i ==24)
+        {
+            fields[i]= new Prison(10);
         }
         else
         {

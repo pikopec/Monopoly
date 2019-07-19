@@ -21,6 +21,12 @@ bool Player::isBancrupt() const
 
 void Player::move(int numberOfFields)
 {
+    if(waitingCounter > 0)
+    {
+        std::cout << "Player " << m_name << "is in prison";
+        --waitingCounter;
+        return;
+    }
     for(int step = 1; step < numberOfFields; step++)
     {
         currentField = currentField->getNextField();
@@ -48,4 +54,10 @@ bool Player::isActive() const
 void Player::setField(Field* field)
 {
     currentField = field;
+}
+
+void Player::goToPrison()
+{
+    std::cout << "Player " << m_name << "went to prison" << std::endl;
+    waitingCounter = 3;
 }

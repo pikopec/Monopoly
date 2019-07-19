@@ -13,10 +13,12 @@ public:
     int getMoney() const;
     bool isActive() const;
     void setField(Field* field);
+    void goToPrison();
 
     virtual bool decideToBuy() = 0;
 private:
     Field* currentField;
+    int waitingCounter {0};
 protected:
     std::string m_name;
     int m_money;
