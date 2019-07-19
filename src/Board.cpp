@@ -16,13 +16,17 @@ Board::Board()
 
     for(int i = 1; i < fieldValues.size(); i++)
     {
-        if(i != 20)
+        if(i == 20)
         {
-            fields[i]= new StandardField(fieldValues[i]);
+            fields[i]= new DepositField(10);
+        }
+        else if(i%3 == 0)
+        {
+            fields[i] = new RealEstateField(100, 10);
         }
         else
         {
-            fields[i]= new DepositField(10);
+            fields[i]= new StandardField(fieldValues[i]);
         }
     }
 

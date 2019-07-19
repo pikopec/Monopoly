@@ -4,7 +4,7 @@
 
 Field::Field(int value) : valueToAdd(value) {}
 
-Field::Field() : valueToAdd(0) {}
+Field::Field() : valueToAdd(0), nextField(NULL) {}
 
 void Field::initializeNextField(Field *field)
 {
