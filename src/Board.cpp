@@ -21,6 +21,12 @@ Board::Board()
         {
             fields[i]= new DepositField(10);
         }
+        if(i == 10)
+        {
+            fields[i]= new RandomField(new DepositField(10),
+                                       new RealEstateField(50, 10),
+                                       new StandardField(10));
+        }
         else if(i%3 == 0)
         {
             fields[i] = new RealEstateField(100, 10);

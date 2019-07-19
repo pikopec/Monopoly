@@ -4,6 +4,7 @@
 #include "StartField.hpp"
 #include "DepositField.hpp"
 #include "RealEstateField.hpp"
+#include "RandomField.hpp"
 #include <array>
 
 class Board
