@@ -20,30 +20,31 @@ void Game::playRound()
     int numberOfActivePlayers = m_players.size();
     for(auto& player : m_players)
     {
-        std::cout << "Player " << player.getName() << ", money: " << player.getMoney() << std::endl;
+        std::cout << "Player " << player->getName() << ", money: " << player->getMoney() << std::endl;
 
-        player.move(m_dies.roll());
-        if(player.isBancrupt())
+        player->move(m_dies.roll());
+        if(player->isBancrupt())
             --numberOfActivePlayers;
         if(numberOfActivePlayers == 1)
         {
             removeBancrupts();
-            std::cout << "GAME OVER, winner is player " << m_players[0].getName();
+            std::cout << "GAME OVER, winner is player " << m_players[0]->getName();
             return;
         }
     }
     removeBancrupts();
 }
 
-void Game::addPlayer(std::string name)
+void Game::addPlayer(std::unique_ptr<Player> player)
 {
-    m_players.push_back(Player(name, 100, &m_board.getStartingField()));
+    player->setField(&m_board.getStartingField());
+    m_players.push_back(std::move(player));
 }
 
 void Game::removeBancrupts()
 {
     m_players.erase(std::remove_if(m_players.begin(), m_players.end(), [](const auto& player){
-        return player.isBancrupt();
+        return player->isBancrupt();
     }), m_players.end());
     std::cout << "player size: " << m_players.size() << std::endl;
 }

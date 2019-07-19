@@ -1,8 +1,8 @@
 #include "Player.hpp"
 #include <iostream>
 
-Player::Player(std::string name, int initMoney, Field* startField) :
-    m_name(name), m_money(initMoney), currentField(startField) {}
+Player::Player(std::string name, int initMoney) :
+    m_name(name), m_money(initMoney), currentField(nullptr) {}
 
 void Player::changeMoney(int value)
 {
@@ -38,4 +38,14 @@ std::string Player::getName() const
 int Player::getMoney() const
 {
     return m_money;
+}
+
+bool Player::isActive() const
+{
+    return m_money > 0;
+}
+
+void Player::setField(Field* field)
+{
+    currentField = field;
 }

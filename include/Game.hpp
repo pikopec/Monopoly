@@ -4,12 +4,13 @@
 #include "Board.hpp"
 #include "Dies.hpp"
 #include <algorithm>
+#include <memory>
 
 class Game
 {
 public:
     void run();
-    void addPlayer(std::string name);
+    void addPlayer(std::unique_ptr<Player> player);
     void removeBancrupts();
     Game(Board board, int numberOfRounds, Dies dies);
 private:
@@ -17,6 +18,6 @@ private:
     bool winConditionCheck();
     Board m_board;
     Dies m_dies;
-    std::vector<Player> m_players;
+    std::vector<std::unique_ptr<Player>> m_players;
     int m_numberOfRounds;
 };
